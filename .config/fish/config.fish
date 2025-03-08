@@ -151,6 +151,6 @@ if status is-interactive
 
 
 	# NOTE: Zoxide
-	zoxide init fish | source
+	zoxide init --cmd cd fish | source
 end
 

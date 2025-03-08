@@ -1,4 +1,4 @@
-# dotfiles
+# OpenSUSE
 ## Description
 My config files for OpenSUSE Tumbleweed
 

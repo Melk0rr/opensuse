@@ -122,12 +122,13 @@ if status is-interactive
 	alias lt='eza -aT --color=always --group-directories-first --icons'
 
 	# NOTE: Zypper
+  abbr za 'sudo zypper in'
+  abbr zc 'sudo zypper cc'
+  abbr zi 'sudo zypper se -i'
+  abbr zr 'sudo zypper rm'
+  abbr zs 'sudo zypper se'
 	abbr zu 'sudo zypper ref && sudo zypper up'
 	abbr zU 'sudo zypper dup'
-	abbr zc 'sudo zypper cc'
-	abbr zs 'sudo zypper se'
-	abbr za 'sudo zypper in'
-	abbr zr 'sudo zypper rm'
 
 	# NOTE: Rclone
 	abbr rcc 'rclone copy'

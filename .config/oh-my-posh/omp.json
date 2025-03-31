@@ -13,7 +13,7 @@
           "style": "diamond",
           "background": "#689d6a",
           "foreground": "#fabd2f",
-          "leading_diamond": "\ue0ca",
+          "leading_diamond": "",
           "template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}} ",
           "properties": {
             "debian": "\uf306",

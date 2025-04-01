@@ -130,6 +130,10 @@ if status is-interactive
 	abbr zu 'sudo zypper ref && sudo zypper up'
 	abbr zU 'sudo zypper dup'
 
+  # NOTE: DNS
+	abbr dnstls-opt 'sudo sed -i "/^DNSOverTLS=/c\DNSOverTLS=opportunistic" /etc/systemd/resolved.conf; sudo systemctl restart systemd-resolved'
+	abbr dnstls-yes 'sudo sed -i "/^DNSOverTLS=/c\DNSOverTLS=yes" /etc/systemd/resolved.conf; sudo systemctl restart systemd-resolved'
+
 	# NOTE: Rclone
 	abbr rcc 'rclone copy'
 

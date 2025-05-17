@@ -7,7 +7,7 @@ ShowViewMode=false
 BrowseThroughArchives=true
 FilterBar=false
 ShowSelectionToggle=false
-ShowStatusBar=false
+ShowStatusBar=Disabled
 Version=202
 ViewPropsTimestamp=2024,12,15,20,50,7.098
 

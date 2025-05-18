@@ -151,6 +151,7 @@ if status is-interactive
 	abbr gco 'git checkout'
 	abbr gb 'git branch'
 	abbr gre 'git rebase'
+        abbr gra 'git remote add origin'
 
 	alias py='python3'
 

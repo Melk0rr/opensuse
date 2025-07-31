@@ -1,7 +1,5 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-  "version": 2,
-  "final_space": true,
   "console_title_template": "{{ .Shell }} in {{ .Folder }}",
   "blocks": [
     {
@@ -9,68 +7,77 @@
       "alignment": "left",
       "segments": [
         {
-          "type": "os",
-          "style": "diamond",
-          "background": "#689d6a",
-          "foreground": "#fabd2f",
-          "leading_diamond": "",
-          "template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}} ",
           "properties": {
+            "cache_duration": "none",
             "debian": "\uf306",
             "windows": "\uf17a"
-          }
+          },
+          "leading_diamond": "\ue737",
+          "template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}} ",
+          "foreground": "#fabd2f",
+          "background": "#689d6a",
+          "type": "os",
+          "style": "diamond"
         },
         {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "trailing_diamond": "\ue0bc",
+          "template": " {{if .Root}}{{ .UserName }}💀{{ .HostName }} {{else}}{{ .UserName }}@{{ .HostName }} {{end}} ",
+          "foreground": "#fabd2f",
+          "background": "#689d6a",
           "type": "session",
           "style": "diamond",
           "foreground_templates": [
             "{{if .Root}}#fb4934{{end}}"
-          ],
-          "trailing_diamond": "\ue0bc",
-          "background": "#689d6a",
-          "foreground": "#fabd2f",
-          "template": " {{if .Root}}{{ .UserName }}💀{{ .HostName }} {{else}}{{ .UserName }}@{{ .HostName }} {{end}} "
+          ]
         },
         {
-          "type": "path",
-          "style": "diamond",
-          "trailing_diamond": "\ue0b4",
-          "background": "#d79921",
-          "foreground": "transparent",
-          "template": " {{ .Path }} ",
           "properties": {
-            "folder_separator_icon": " / ",
+            "cache_duration": "none",
             "folder_icon": "\uea7c",
+            "folder_separator_icon": " / ",
             "home_icon": "\uf015 ",
-            "max_depth": 1,
             "mapped_locations": {},
+            "max_depth": 1,
             "style": "agnoster_short"
-          }
+          },
+          "trailing_diamond": "\ue0b4",
+          "template": " {{ .Path }} ",
+          "foreground": "transparent",
+          "background": "#d79921",
+          "type": "path",
+          "style": "diamond"
         },
         {
+          "properties": {
+            "cache_duration": "none",
+            "fetch_stash_count": true,
+            "fetch_status": true
+          },
+          "trailing_diamond": "\ue0b4",
+          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }} ",
+          "foreground": "#ebdbb2",
+          "background": "#cc241d",
           "type": "git",
           "style": "diamond",
-          "trailing_diamond": "\ue0b4",
-          "background": "#cc241d",
-          "foreground": "#ebdbb2",
           "foreground_templates": [
             "{{ if or (.Working.Changed) (.Staging.Changed) }}#fabd2f{{ end }}",
             "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#ebdbb2{{ end }}",
             "{{ if gt .Ahead 0 }}#b8bb26{{ end }}",
             "{{ if gt .Behind 0 }}#b16286{{ end }}"
-          ],
-          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }} ",
-          "properties": {
-            "fetch_stash_count": true,
-            "fetch_status": true
-          }
+          ]
         },
         {
-          "type": "status",
-          "style": "diamond",
+          "properties": {
+            "cache_duration": "none"
+          },
           "trailing_diamond": "\ue0b4",
+          "template": "<transparent> \uf12a</> {{ .Meaning }} ",
           "background": "#910000",
-          "template": "<transparent> \uf12a</> {{ .Meaning }} "
+          "type": "status",
+          "style": "diamond"
         }
       ]
     },
@@ -79,26 +86,30 @@
       "alignment": "right",
       "segments": [
         {
-          "type": "executiontime",
-          "style": "diamond",
-          "foreground": "transparent",
-          "background": "#ebdbb2",
-          "invert_powerline": true,
+          "properties": {
+            "always_enabled": true,
+            "cache_duration": "none"
+          },
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0bc",
-          "template": " 󱦟 {{ .FormattedMs }}",
-          "properties": {
-            "always_enabled": true
-          }
+          "template": " \udb86\udd9f {{ .FormattedMs }}",
+          "foreground": "transparent",
+          "background": "#ebdbb2",
+          "type": "executiontime",
+          "style": "diamond",
+          "invert_powerline": true
         },
         {
-          "type": "time",
-          "style": "diamond",
-          "invert_powerline": true,
+          "properties": {
+            "cache_duration": "none"
+          },
           "trailing_diamond": "\ue0b4",
+          "template": " \udb85\udc4e {{ .CurrentDate | date .Format }} ",
           "foreground": "#ebdbb2",
           "background": "#928374",
-          "template": " 󱑎 {{ .CurrentDate | date .Format }} "
+          "type": "time",
+          "style": "diamond",
+          "invert_powerline": true
         }
       ]
     },
@@ -107,19 +118,22 @@
       "alignment": "left",
       "segments": [
         {
+          "properties": {
+            "always_enabled": true,
+            "cache_duration": "none"
+          },
+          "template": "❯ ",
+          "foreground": "#ebdbb2",
           "type": "text",
           "style": "plain",
-          "foreground": "#ebdbb2",
           "foreground_templates": [
             "{{ if gt .Code 0 }}#ff0000{{ end }}"
-          ],
-          "template": "❯ ",
-          "properties": {
-            "always_enabled": true
-          }
+          ]
         }
       ],
       "newline": true
     }
-  ]
+  ],
+  "version": 3,
+  "final_space": true
 }
